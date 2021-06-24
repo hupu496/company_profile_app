@@ -1,0 +1,72 @@
+{% extends 'company/base.html' %}
+{% block title %}Cloud Services{% endblock %}
+{% block css %}
+.inner{
+    overflow: hidden; /*if out the property the image blow the card*/
+}
+.inner img{
+    transition: all 1.5s ease;
+}
+.inner:hover img{
+    transform: scale(1.5);
+}
+.service_heading {
+    text-transform: uppercase;
+    position: relative;
+  }
+
+  .service_heading:after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0%;
+    height: auto;
+    border-bottom: 3px solid #3e4555;
+    transition: all 0.3s linear;
+  }
+
+  .service_heading:hover:after {
+    width: 20%
+  }
+{% endblock %}
+{% block dashboard %}
+ {% if user.is_authenticated %}
+        <b>{{user.username}}</b><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+</svg> <a class="my-2 my-sm-0" type="submit" href="{% url 'logout' %}">Logout</a>
+{% else %}  <a class="btn btn-outline-danger mr-sm-2" type="submit" href="{% url 'Contact' %}">Contact</a>
+<a class="btn btn-outline-success my-2 my-sm-0" type="submit" href="{% url 'login' %}" class="ml-2">Login</a>
+{% endif %}          {% endblock %}
+{% block content %}
+<br><br><br><br>
+<div class="mt-2 mb-5 text-center">
+        <h1 class="service_heading">CLOUD SERVICES</h1>
+    </div>
+
+
+
+<div class="container">
+  <div class="row justify-content-center">
+        {% for i in clouds %}
+    <div class="col-md-6 py-md-5">
+      <div class="card shadow" style="width: 18rem;">
+        <div class="inner">
+          <img class="card-img-top" src="/media/{{i.image}}"
+            alt="Card image cap"  width="70" height="200">
+
+        </div>
+
+        <div class="card-body">
+
+          <h5 class="card-title text-center">{{i.cloud_name}}</h5>
+        </div>
+      </div>
+    </div>
+      {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

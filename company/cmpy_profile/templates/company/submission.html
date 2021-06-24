@@ -1,0 +1,17 @@
+{% extends 'company/base.html' %}
+{% block title %}Thanks for visit{% endblock %}
+{% block content %}
+<br><br><br><br><br>
+<div class="jumbotron text-center">
+  <h1 class="display-3">Thank You!</h1>
+  <p class="lead"><strong>Please check your email</strong> for further information or any update regards your. we will inform. your account setup.</p>
+  <hr>
+  <p>
+    Having trouble? <a href="{% url 'Contact' %}">Contact us</a>
+  </p>
+  <p class="lead">
+    <a class="btn btn-primary btn-sm" href="{% url 'Home' %}" role="button">Continue to homepage</a>
+  </p>
+</div>
+{% endblock %}
+</html>

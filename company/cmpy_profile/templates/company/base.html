@@ -1,0 +1,267 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="icon" href="https://img.icons8.com/doodle/48/000000/home--v1.png">
+
+    <!-- Bootstrap -->
+
+    <!-- Material Design for Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.7/css/mdb.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+
+
+    <title>{% block title %}          {% endblock %}</title>
+    <style>
+      @media (min-width: 800px) and (max-width: 850px) {
+            html,
+            body,
+            header,
+            .view {
+                height: 650px;
+            }
+        }
+
+        @media (min-width: 800px) and (max-width: 850px) {
+            .navbar:not(.top-nav-collapse) {
+                background: #1C2331!important;
+            }
+        }
+        /*.top-nav-collapse,
+        .footercolor {
+            background-color: #1A1C21 !important;
+        }*/
+
+        .navbar:not(.top-nav-collapse) {
+            background: transparent !important;
+        }
+        .images{
+        width:50px;
+        height"800px;
+        opacity:40;
+        background-color:#1a1918;
+    </style>
+    <style>{% block css %}    {% endblock %}</style>
+     {% block js %}  {% endblock %}
+  </head>
+
+  <body data-target="#navbarSupportedContent">
+  <nav class="navbar fixed-top navbar-expand-lg navbar-primary  bg-dark scrolling-navbar">
+  <img src="https://img.icons8.com/doodle/48/000000/home--v1.png"/>
+
+  <button class="navbar-toggler" type="button" class="btn btn-dark" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav nav-pills mx-auto">
+      <li class="nav-item" data-toggle="collapse" data-target="#navbarSupportedContent">
+        <a class="nav-link" href="{% url 'Home' %}">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'About' %}">About</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="{% url 'Services' %}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Services
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{% url 'Webapp' %}">Web Application Development</a>
+          <a class="dropdown-item" href="{% url 'Mobapp' %}">Mobile Application Development</a>
+          <a class="dropdown-item" href="{% url 'Cloud' %}">Cloud Services</a>
+           <a class="dropdown-item" href="{% url 'Video_edit' %}" >Video Editing</a>
+           <a class="dropdown-item" href="{% url 'Ui_Ux' %}">UI/UX Design</a>
+          <a class="dropdown-item" href="{% url 'Cms' %}">CMS & E-commerce Development</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="{% url 'Hdr' %}">Hire Dedicated Resource</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://alltechnicalarea.blogspot.com/">Blog</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0 ">
+      {% block dashboard %}           {% endblock %}
+      {% block button %}              {% endblock %}
+
+    </form>
+    {% block addcart %}
+    <!-- <button type="button" class="btn btn-secondary mx-2" id="popcart" data-container="body" data-toggle="popover" data-placement="bottom" data-html="true" data-content="Vivamus
+sagittis lacus vel augue laoreet rutrum faucibus.">
+
+  cart(<span id="cart">0</span>)
+</button>-->
+    {% endblock %}
+  </div>
+</nav>
+    {% block content %}
+
+    {% endblock %}
+    <style>
+        .footer{
+    background: black;
+    color: white;
+}
+.footer .container {
+    padding: 0px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.first {
+    flex: 1;
+}
+
+.second {
+    flex: 1;
+    text-align: center;
+}
+
+
+.third {
+    flex: 1;
+}
+.footer .copyright {
+    margin-top: 20px;
+    text-align: center;
+}
+.list {
+    list-style: none;
+    text-align: center;
+    font-size: 12px;
+}
+
+
+
+.icon{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.icon ul{
+    margin: 0;
+    padding: 0;
+    display: flex;
+
+}
+.icon ul li{
+    list-style: none;
+    margin: 0 5px;
+}
+.icon ul li a{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 30px;
+    color: #fff;
+    transition: 0.5s;
+}
+.icon ul li a:hover{
+    color:#fff;
+}
+.icon ul li a:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #000;
+    border-radius: 50%;
+    z-index: -1;
+    transform: scale(0);
+    transition: 0.5s;
+}
+.icon ul li a :hover:before{
+    transform: scale(1);
+}
+
+    </style>
+
+    <div class="footer">
+  <div class="container">
+    <div class="first">
+      <h4>Jash Software PVT LTD</h4>
+      <p>
+ we deliver not only the best but also fast. We develop all kinds of technological products such as Native, Hybrid Mobile applications, and Progressive web-based Applications. The core of all our apps is their user-friendly character, provided by a complimenting UI/UX design.
+      </p>
+    </div>
+    <div class="second">
+      <h4>HELP</h4>
+      <ul class="list">
+        <li>
+          Shipping Information</li>
+        <li> Returns & Exchange</li>
+        <li> Terms & Conditions</li>
+        <li> Privacy Policy
+        </li>
+      </ul>
+    </div>
+    <div class="third">
+      <h4>HAVE A QUESTION</h4>
+      <p><a
+          href="https://www.google.com/maps/dir/25.8694492,85.7617462/jstc+bhopal/@23.4617853,77.3934982,9z/data=!4m9!4m8!1m1!4e1!1m5!1m1!1s0x397c424dea6f4097:0xfee6aba4264d5e6c!2m2!1d77.4371076!2d23.2128224" target="_blank"><img
+            src="https://img.icons8.com/officexs/16/000000/worldwide-location.png" /></a>
+        E-3/285, 10 Number Market, Arera Colony, Bhopal - 462016, Near Vardhman Mall</p>
+      <p><a href="#"><img src="https://img.icons8.com/officexs/16/000000/phone-disconnected.png" /></a>+917999669691,+918839671976</p>
+      <p><a href="https://mail.google.com/mail/u/0/#inbox" target="_blank"><img
+            src="https://img.icons8.com/officexs/16/000000/new-message.png" /></a>gharpasuvidhya@gmail.com
+      </p>
+    </div>
+  </div>
+
+
+  <div class="copyright">
+    <p>Compile Technologies Pvt Ltd © All Rights Reserved, Jash Software a registered trademark of Compile Technologies Pvt Ltd</p>
+  </div>
+</div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+
+
+        <script  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+        <!-- Material Design for Bootstrap -->
+        <script  src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.5/js/mdb.min.js"></script>
+
+  <!-->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  <!--Start of Tawk.to Script-->
+   <!--Start of Tawk.to Script-->
+<script>
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement(&quot;script&quot;),s0=document.getElementsByTagName(&quot;script&quot;)[0];
+s1.async=true;
+s1.src=&#39;https://embed.tawk.to/5ff44320a9a34e36b9693b5e/1er92cfdr&#39;;
+s1.charset=&#39;UTF-8&#39;;
+s1.setAttribute(&#39;crossorigin&#39;,&#39;*&#39;);
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+
+
+<!--End of Tawk.to Script-->
+  </body>
+</html>

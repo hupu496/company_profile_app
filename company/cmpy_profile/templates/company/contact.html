@@ -1,0 +1,66 @@
+{% extends 'company/base.html' %}
+<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+{% block title %}Contact Us{% endblock %}
+{% block css %}
+.service_heading {
+    text-transform: uppercase;
+    position: relative;
+  }
+
+  .service_heading:after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0%;
+    height: auto;
+    border-bottom: 3px solid #3e4555;
+    transition: all 0.3s linear;
+  }
+
+  .service_heading:hover:after {
+    width: 20%
+  }
+
+{% endblock %}
+{% block dashboard %}
+ {% if user.is_authenticated %}
+        <b>{{user.username}}</b><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+</svg> <a class="my-2 my-sm-0" type="submit" href="{% url 'logout' %}">Logout</a>
+{% else %}  <a class="btn btn-outline-danger mr-sm-2" type="submit" href="{% url 'Contact' %}">Contact</a>
+<a class="btn btn-outline-success my-2 my-sm-0" type="submit" href="{% url 'login' %}" class="ml-2">Login</a>
+{% endif %}          {% endblock %}
+{% block content %}
+<br><br><br><br>
+<div class="mt-2 mb-5 text-center">
+        <h1 class="service_heading">CONTACT US</h1>
+    </div>
+
+<form method="POST" class="container" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div class="form-group">
+    <label >User Name</label>
+    <input type="text" class="form-control" name="name">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
+  </div>
+  <div class="form-group">
+    <label >Description</label>
+    <textarea class="form-control" name="description" id="" cols="30" rows="10"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlFile1">Document/Resume</label>
+    <input type="file" name="file" class="form-control-file" id="exampleFormControlFile1">
+  </div>
+  <div class="form-group form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}
